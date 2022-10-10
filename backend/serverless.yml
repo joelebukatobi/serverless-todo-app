@@ -6,7 +6,6 @@ service: serverless-todo-app
 plugins:
   - serverless-webpack
   - serverless-iam-roles-per-function
-  - serverless-plugin-tracing
   - serverless-aws-documentation
   - serverless-reqvalidator-plugin
 
@@ -50,34 +49,6 @@ custom:
         version: '1.0.0'
         title: serverless-api
         description: serverless-api
-    models:
-      - name: CreateTodoRequest
-        contentType: 'application/json'
-        schema:
-          required:
-            - name
-            - dueDate
-          properties:
-            name:
-              minLength: 1
-              type: string
-            dueDate:
-              type: string
-      - name: UpdateTodoRequest
-        contentType: 'application/json'
-        schema:
-          required:
-            - name
-            - dueDate
-            - done
-          properties:
-            name:
-              minLength: 1
-              type: string
-            dueDate:
-              type: string
-            done:
-              type: boolean
 
 functions:
   Auth:
